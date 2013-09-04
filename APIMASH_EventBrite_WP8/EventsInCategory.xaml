@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="APIMASH_EventBrite_WP8.EventsInCategory"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+
+    <toolkit:TransitionService.NavigationInTransition>
+        <toolkit:NavigationInTransition>
+            <toolkit:NavigationInTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardIn"/>
+            </toolkit:NavigationInTransition.Backward>
+            <toolkit:NavigationInTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardIn"/>
+            </toolkit:NavigationInTransition.Forward>
+        </toolkit:NavigationInTransition>
+    </toolkit:TransitionService.NavigationInTransition>
+    <toolkit:TransitionService.NavigationOutTransition>
+        <toolkit:NavigationOutTransition>
+            <toolkit:NavigationOutTransition.Backward>
+                <toolkit:TurnstileTransition Mode="BackwardOut"/>
+            </toolkit:NavigationOutTransition.Backward>
+            <toolkit:NavigationOutTransition.Forward>
+                <toolkit:TurnstileTransition Mode="ForwardOut"/>
+            </toolkit:NavigationOutTransition.Forward>
+        </toolkit:NavigationOutTransition>
+    </toolkit:TransitionService.NavigationOutTransition>
+
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+
+
+        <ProgressBar Name="progress" Visibility="Collapsed" IsIndeterminate="False" Width="200" Height="100"/>
+
+        <phone:Pivot Title="Eventbrite Starter Kit">
+                <!--Pivot item one-->
+                <phone:PivotItem Header="{Binding Name}" >
+            <phone:LongListSelector x:Name="EventsLongListSelector"
+                                    
+                                    ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                                    ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                    Margin="0,0,-12,0" ItemsSource="{Binding EventsInCategory}" Tap="EventsLongListSelector_Tap" >
+                <phone:LongListSelector.ItemTemplate  >
+                    <DataTemplate>                       
+                        <StackPanel Margin="12,20,0,17">
+                            <toolkit:HubTile 
+                                 Size="Large"
+                                         Margin="12,12,0,0"
+                                         Source="{Binding LogoUrl}"
+                                         Title="{Binding StartDate, StringFormat='ddd, dd MMM yyyy hh:mm tt'}"
+                                         Notification="{Binding ShortName}"
+                                         DisplayNotification="True"                                 
+                                         />                            
+                        </StackPanel>
+                    </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+            </phone:LongListSelector>
+                </phone:PivotItem>
+            </phone:Pivot>
+        
+    </Grid>
+
+</phone:PhoneApplicationPage>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="3663a8bc-e385-44dc-9ddb-8ed0aeea77aa" Publisher="CN=jeaguila" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>APIMASH_EventBrite_Win8</DisplayName>
+    <PublisherDisplayName>jeaguila</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_EventBrite_Win8.App">
+      <VisualElements DisplayName="APIMASH_EventBrite_Win8" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="APIMASH_EventBrite_Win8" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>
